@@ -165,3 +165,41 @@ section {
     from, to { border-color: transparent }
     50% { border-color: orange }
   }
+
+  /* Layout the boxes nicely in a row (wrap on small screens) */
+#education .list-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Fixed-size box */
+#education .list-group-item {
+  width: 360px;         /* set your fixed width */
+  height: 180px;        /* set your fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-sizing: border-box; /* include border in the set width/height */
+  overflow: hidden;       /* hide overflowed content (see options below) */
+}
+
+/* Optional: tidy long lines without breaking layout */
+#education .list-group-item .large,
+#education .list-group-item .font-weight-light,
+#education .list-group-item .small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* number of lines before ellipsis */
+  -webkit-box-orient: vertical;
+}
+
+/* (Optional) make it a tad smaller on phones */
+@media (max-width: 420px) {
+  #education .list-group-item { width: 320px; height: 170px; }
+}
